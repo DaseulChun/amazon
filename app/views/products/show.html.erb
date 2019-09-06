@@ -1,0 +1,10 @@
+<h3>Show Page</h3>
+
+<h1><%= @product.title%></h1>
+<p><%= @product.description %></p>
+<p><%= number_to_currency(@product.price) %></p>
+
+<%= link_to "Edit", edit_product_path(@product) %>
+<%= link_to "Delete", delete_product_path(@product), method: :delete, data: {confirm: "Are you sure?"} %>
+
+
