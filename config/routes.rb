@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   # delete product and then redirect to the index page
   delete '/products/:id', {to: 'products#destroy', as: :delete_product}
 
-  
+  # routes of reviews
+  resources :products do
+    resources :reviews, only:
+    [:create, :destroy]
+  end
 end
 

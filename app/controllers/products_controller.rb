@@ -20,8 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product ;
-    # = Product.find params[:id]
+    @product = Product.find(params[:id])
+    @review = Review.new
+    @reviews = @product.reviews.order(created_at: :desc)
   end
 
   def index
@@ -41,7 +42,7 @@ class ProductsController < ApplicationController
     #for user to update the existing question, they must edit and then save it
   
     if @product.update(product_params)
-      redirect_to product_path
+      redirect_to product_path(@product)
     else
       render :edit
     end
