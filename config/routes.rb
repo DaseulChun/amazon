@@ -10,31 +10,32 @@ Rails.application.routes.draw do
     get :bill_splitter
   end
 
-  # products new page - shows a form to create a product
-  get '/products/new', {to: 'products#new', as: :new_product}
+  # # products new page - shows a form to create a product
+  # get '/products/new', {to: 'products#new', as: :new_product}
 
-  # create products
-  post '/products', {to: 'products#create', as: :products}
+  # # create products
+  # post '/products', {to: 'products#create', as: :products}
 
-  # show product page
-  get '/products/:id', {to: 'products#show', as: :product}
+  # # show product page
+  # get '/products/:id', {to: 'products#show', as: :product}
 
-  # products index page
-  get '/products', {to: 'products#index'}
+  # # products index page
+  # get '/products', {to: 'products#index'}
 
-  # product edit page
-  get '/products/:id/edit', {to: 'products#edit', as: :edit_product}
+  # # product edit page
+  # get '/products/:id/edit', {to: 'products#edit', as: :edit_product}
 
-  # update action handles the submission of form from the product edit page
-  patch '/products/:id', {to: 'products#update'}
+  # # update action handles the submission of form from the product edit page
+  # patch '/products/:id', {to: 'products#update'}
 
-  # delete product and then redirect to the index page
-  delete '/products/:id', {to: 'products#destroy', as: :delete_product}
+  # # delete product and then redirect to the index page
+  # delete '/products/:id', {to: 'products#destroy', as: :delete_product}
 
   # routes of reviews
   resources :products do
     resources :reviews, only:
     [:create, :destroy]
   end
+  
 end
 
