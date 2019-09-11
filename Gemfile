@@ -26,15 +26,17 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pry-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'turbolinks', '~> 2.5', '>= 2.5.3'
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'cowsay'
   gem 'faker'
-  gem 'bootstrap', '~> 4.3.1'
-  gem 'jquery-rails'
-  gem 'turbolinks', '~> 2.5', '>= 2.5.3'
+  gem 'rails-erd', '~> 1.5', '>= 1.5.2'
 end
 
 group :development do
