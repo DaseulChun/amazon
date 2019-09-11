@@ -33,9 +33,13 @@ Rails.application.routes.draw do
 
   # routes of reviews
   resources :products do
-    resources :reviews, only:
-    [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
   end
   
+  resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
 end
 

@@ -1,0 +1,17 @@
+<h1>Sign In</h1>
+# url: sessions_path is the path you are sending the form to
+# you can always chcek the helper by : http://localhost:3000/rails/info/routes
+
+<%= form_with url: sessions_path, local: true do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  
+  <%= f.submit "Sign In" %>
+<% end %>
