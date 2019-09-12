@@ -41,5 +41,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
+
+  # routes to admin
+  get "/admin/panel", to: "admin#index"
+
 end
 

@@ -41,5 +41,11 @@ class Ability
       review.user == user
     end
     
+    if user.is_admin?
+      can :manage, :all
+    else
+      can :read, :all
+    end
+    
   end
 end
