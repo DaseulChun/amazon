@@ -51,17 +51,19 @@
     <small>
       Commented <%= time_ago_in_words(review.created_at) %> ago
     </small>
-    ●
-    <small>
-      <%= link_to(
-        "Delete", 
-        product_review_path(@product, review), 
-        method: :delete,
-        data: {
-          confirm: "Are you sure?"
-        })
-      %>
-    </small>
+    <% if can?(:crud, review) %>
+      ●
+      <small>
+        <%= link_to(
+          "Delete", 
+          product_review_path(@product, review), 
+          method: :delete,
+          data: {
+            confirm: "Are you sure?"
+          })
+        %>
+      </small>
+    <% end %>
   </div>
 <% end %>
 <% end %>

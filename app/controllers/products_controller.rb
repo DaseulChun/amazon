@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    flash[:notice] = "Question destroyed!"
+    flash[:notice] = "Product destroyed!"
     @product.destroy
     redirect_to products_path
   end
