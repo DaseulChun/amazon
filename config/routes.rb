@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
+  resources :news_articles, only: [:new, :create, :show, :destroy, :index]
+
   # routes to admin
   get "/admin/panel", to: "admin#index"
 

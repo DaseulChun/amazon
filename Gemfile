@@ -37,7 +37,9 @@ group :development, :test do
   gem 'cowsay'
   gem 'faker'
   gem 'rails-erd', '~> 1.5', '>= 1.5.2'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 group :development do
