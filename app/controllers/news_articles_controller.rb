@@ -1,5 +1,6 @@
 class NewsArticlesController < ApplicationController
   
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :find_news_article, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -8,6 +9,10 @@ class NewsArticlesController < ApplicationController
 
   def create
     @news_article = NewsArticle.new news_article_params
+
+    # associating news_article with its user
+    @news_article.user = current_user
+    
     if @news_article.save
       redirect_to @news_article
     else
