@@ -41,6 +41,17 @@ class Ability
       review.user == user
     end
     
+    # The owner of the review cannot like its review
+    can :like, Review do |review|
+      user.persisted? && user != review.user
+    end
+    
+    # ONLY the owner of the like can destroy the like
+    can :destroy, Like do |like|
+      like.user == user
+    end
+
+    # For admin
     if user.is_admin?
       can :manage, :all
     else

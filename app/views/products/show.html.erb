@@ -44,26 +44,42 @@
 <div>
 <% if @reviews!= nil %>
 <% @reviews.each do |review| %>
+  <% @like = review.likes.find_by(user: current_user) %>
+
   <div>
-    <p><%= review.body %></p>
-    <p><%= review.rating %> Star</p>
-    <p>Reviewd by: <%= review.user&.full_name %></p>
-    <small>
-      Commented <%= time_ago_in_words(review.created_at) %> ago
-    </small>
-    <% if can?(:crud, review) %>
-      ●
+    <p>
+      <%= review.rating %> Star <br />
+      <%= review.body %> <br />
+      Reviewd by: <%= review.user&.full_name %> <br />
+      
       <small>
-        <%= link_to(
-          "Delete", 
-          product_review_path(@product, review), 
-          method: :delete,
-          data: {
-            confirm: "Are you sure?"
-          })
-        %>
+        Commented <%= time_ago_in_words(review.created_at) %> ago
       </small>
-    <% end %>
+    
+      <% if can?(:crud, review) %>
+        ●
+        <small>
+          <%= link_to(
+            "Delete", 
+            product_review_path(@product, review), 
+            method: :delete,
+            data: {
+              confirm: "Are you sure?"
+            })
+          %>
+        </small>
+      <% end %>
+    
+      <% if @like.present? && can?(:destroy, @like) %>
+        <%= link_to "Unlike👎", like_path(@like), method: :delete %>
+      <% elsif can?(:like, review) %>
+        <%= link_to "Like👍", product_review_likes_path(@product, review), method: :post %>
+      <% end %>
+
+      <small>
+        (<%= pluralize(review.likes.count, "like") %>)
+      </small>
+    </p>
   </div>
 <% end %>
 <% end %>
