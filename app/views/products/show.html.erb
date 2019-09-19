@@ -3,6 +3,15 @@
 <h1><%= @product.title%></h1>
 <p><%= @product.description %></p>
 <p><%= number_to_currency(@product.price) %></p>
+<p>
+  Tags: 
+  <% @product.tags.each do |tag| %>
+    <%= link_to tag.name,
+                products_path(tag: tag.name),
+                class: "badge badge-pill badge-primary"
+    %>
+  <% end %>
+</p>
 <p>Sold by: <%= @product.user&.full_name || 'DELETED' %></p>
 
 <% if can?(:crud, @product) %>

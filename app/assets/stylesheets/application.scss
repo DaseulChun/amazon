@@ -13,5 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap";
  @import "main";
+ @import 'selectize';
+ @import 'selectize.bootstrap3';

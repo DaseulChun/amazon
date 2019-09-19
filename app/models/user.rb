@@ -4,7 +4,7 @@ class User < ApplicationRecord
   
   has_many :products, dependent: :nullify
   has_many :reviews, dependent: :nullify
-  has_many :new_articles, dependent: :destroy
+  has_many :news_articles, dependent: :destroy
 
   # likes (many to many)
   has_many :likes, dependent: :destroy

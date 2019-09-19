@@ -46,6 +46,8 @@ Rails.application.routes.draw do
 
   resources :news_articles, only: [:new, :create, :show, :destroy, :index]
 
+  resources :tags, only: [:index]
+  
   # routes to admin
   get "/admin/panel", to: "admin#index"
 

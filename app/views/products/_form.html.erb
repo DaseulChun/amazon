@@ -10,19 +10,27 @@
 
 <%= form_for @product do |f|%>
 
-<div>
-<%= f.label :title %>
-<%= f.text_field :title %>
-</div>
-<div>
-<%= f.label :description %>
-<%= f.text_field :description %>
-</div>
-<div>
-<%= f.label :price %>
-<%= f.text_field :price %>
-</div>
-
-<%= f.submit %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+    <div>
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+    </div>
+    <div class="form-group">
+        <%= f.collection_check_boxes :tag_ids, Tag.order(name: :asc), :id, :name do |b| %>
+            <div class="tag-wrapper">
+                <%= b.check_box %>
+                <%= b.text.humanize %>
+            </div>
+        <% end %>
+    </div>
+    <%= f.submit %>
 
 <%end%>
+
