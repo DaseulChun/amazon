@@ -1,0 +1,20 @@
+<h2>Hi, <%= @product_owner.full_name %></h2>
+
+<p>
+  <%= @review.user.full_name %> add the review to your product: <br />
+  <span style="font-weight: 600;"> <%= @product.title %></span>
+</p>
+
+<p>
+  The review is: <br />
+  <%= @review.body %> <br />
+  The rating is: <br />
+  <%= @review.rating %>
+</p>
+
+<%= link_to("Click here to view the review", product_url(@product)) %>
+
+<p>
+Cheers, <br />
+Amazon Team
+</p>

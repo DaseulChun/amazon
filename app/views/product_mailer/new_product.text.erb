@@ -1,0 +1,14 @@
+Hi, <%= @product_owner.full_name %>
+
+You've successfully created a new product:
+<%= @product.title %>
+
+Here is the summary of your product: 
+Title: <%= @product.title %> 
+Description: <%= @product.description %> 
+Price: <%= @product.price %> 
+
+<%= product_url(@product) %>
+
+Cheers, 
+Amazon Team

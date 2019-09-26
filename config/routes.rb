@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:index]
   
+  # routes to delayed_job_web
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
+
   # routes to admin
   get "/admin/panel", to: "admin#index"
 

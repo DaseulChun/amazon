@@ -1,0 +1,14 @@
+Hi, <%= @product_owner.full_name %>
+
+<%= @review.user.full_name %> add the review to your product:
+<%= @product.title %>
+
+The review is: 
+<%= @review.body %> 
+The rating is: 
+<%= @review.rating %>
+
+<%= product_url(@product) %>
+
+Cheers, 
+Amazon Team
