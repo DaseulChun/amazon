@@ -33,6 +33,7 @@ gem 'selectize-rails'
 gem 'turbolinks', '~> 2.5', '>= 2.5.3'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -31,6 +31,14 @@ Rails.application.routes.draw do
   # # delete product and then redirect to the index page
   # delete '/products/:id', {to: 'products#destroy', as: :delete_product}
 
+  # API
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :products
+      resource :session, only: [:create, :destroy]
+    end
+  end
+  
   # routes of reviews
   resources :products do
     resources :reviews, only: [:create, :destroy] do
