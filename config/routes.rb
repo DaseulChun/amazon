@@ -36,6 +36,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :products
       resource :session, only: [:create, :destroy]
+      # /api/v1/user
+      resources :users, only: [:create] do
+      # api/v1/user/current
+      get :current, on: :collection
+      # default
+      # api/v1/user/:id/current
+      end
     end
   end
   
